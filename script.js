@@ -17,18 +17,16 @@ var canvas = document.getElementById("visuals"),
 	source2 = audioCtx.createMediaElementSource(player2),
 	frameLooperRunning = false,
     
-	splitterNodes = [
-		audioCtx.createChannelSplitter(2),
-		audioCtx.createChannelSplitter(2)
-	],
+	// splitterNodes = [
+	// 	audioCtx.createChannelSplitter(2),
+	// 	audioCtx.createChannelSplitter(2)
+	// ],
 	gainNodes = [
-		audioCtx.createGain(),
-		audioCtx.createGain(),
 		audioCtx.createGain(),
 		audioCtx.createGain()
 	],
 
-	merger = audioCtx.createChannelMerger(4),
+	// merger = audioCtx.createChannelMerger(4),
 
 	analyser = audioCtx.createAnalyser(),
 
@@ -186,9 +184,7 @@ document.querySelector(".crossFader").addEventListener('input', function () {
 	console.log("gain1 value = " + gain1);
 	console.log("gain2 value = " + gain2);
 	gainNodes[0].gain.value = gain1;
-	gainNodes[1].gain.value = gain1;
-	gainNodes[2].gain.value = gain2;
-	gainNodes[3].gain.value = gain2;
+	gainNodes[1].gain.value = gain2;
 }, false);
 
 //Gives an alert to the user when the song is blocked because of copyright restrictions of the browser.
@@ -207,26 +203,28 @@ player2.addEventListener('error', function(e) {
 //////////////////////////////////////////
 
 //Everything here connects the nodes to each other. In that way an path will be created from the audio source to the actual output (sound!).
-source1.connect(splitterNodes[0]);
-source2.connect(splitterNodes[1]);
+source1.connect(gainNodes[0]);
+source2.connect(gainNodes[1]);
 
 //Future steps are to adjust volume of left gain nodes relative to right gain node.
 //This would facilitate a pan knob.
 
-//Connect LEFT channel of deck 1 to gain[0].
-splitterNodes[0].connect(gainNodes[0], 0, 0);
-//Connect RIGHT channel of deck 1 to gain[1].
-splitterNodes[0].connect(gainNodes[1], 1, 0);
-//Connect LEFT channel of deck 2 to gain[2].
-splitterNodes[1].connect(gainNodes[2], 0, 0);
-//Connect RIGHT channel of deck 2 to gain[3].
-splitterNodes[1].connect(gainNodes[3], 1, 0);
+// //Connect LEFT channel of deck 1 to gain[0].
+// splitterNodes[0].connect(gainNodes[0], 0, 0);
+// //Connect RIGHT channel of deck 1 to gain[1].
+// splitterNodes[0].connect(gainNodes[1], 1, 0);
+// //Connect LEFT channel of deck 2 to gain[2].
+// splitterNodes[1].connect(gainNodes[2], 0, 0);
+// //Connect RIGHT channel of deck 2 to gain[3].
+// splitterNodes[1].connect(gainNodes[3], 1, 0);
 
-gainNodes[0].connect(merger, 0, 0);
-gainNodes[1].connect(merger, 0, 1);
-gainNodes[2].connect(merger, 0, 0);
-gainNodes[3].connect(merger, 0, 1);
-merger.connect(EQNodes[0]);
+// gainNodes[0].connect(merger, 0, 0);
+// gainNodes[1].connect(merger, 0, 1);
+// gainNodes[2].connect(merger, 0, 0);
+// gainNodes[3].connect(merger, 0, 1);
+
+gainNodes[0].connect(EQNodes[0]);
+gainNodes[0].connect(EQNodes[0]);
 EQNodes[0].connect(EQNodes[1]);
 EQNodes[1].connect(EQNodes[2]);
 EQNodes[2].connect(EQNodes[3]);
