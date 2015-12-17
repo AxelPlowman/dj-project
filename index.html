@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="handlebars-v4.0.5.js"></script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta charset="utf-8" />
+	<meta name="author" content="">
+	<title>NIMBUS</title>
+</head>
+
+<body>
+	<main>
+		<h1>NIMBUS</h1>
+		<div class="equaliser">
+			<form class="equaliserSliders">
+				<input id="EQValueIn1" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn2" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn3" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn4" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn5" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn6" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn7" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn8" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn9" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<input id="EQValueIn10" class="EQSlider" type="range" min="-12" max="12" orient="vertical" />
+				<button type="reset" class="resetButton">reset</button>
+			</form>
+			<ul class="freqList">
+				<li>32</li>
+				<li>54</li>
+				<li>125</li>
+				<li>250</li>
+				<li>500</li>
+				<li>1000</li>
+				<li>2000</li>
+				<li>4000</li>
+				<li>8000</li>
+				<li>16000</li>
+			</ul>
+		</div>
+		<canvas id="visuals"></canvas>
+		<div class="playbackWrapper">
+			<div id="deck1" class="deck">
+				<p>deck 1</p>
+				<div class="PBSpeedWrapper">
+					<input type="range" class="tempoSlider" id="tempoDeck1" min="0.9" max="1.1" value="1" step="0.001" />
+					<label for="tempoDeck1" id="tempoDeck1Label" class="tempoDeckLabel">0.0%</label>
+				</div>
+	  	    	<audio id="player1" controls="true"></audio>
+	  	    </div>
+	  	    <div id="deck2" class="deck">
+	  	    	<p>deck 2</p>
+	  	    	<audio id="player2" controls="true"></audio>
+				<div class="PBSpeedWrapper">
+		  	    	<input type="range" class="tempoSlider" id="tempoDeck2" min="0.9" max="1.1" value="1" step="0.001" />
+		  	    	<label for="tempoDeck2" id="tempoDeck2Label" class="tempoDeckLabel">0.0%</label>
+	  	    	</div>
+	  	    </div>
+  		</div>
+  		<div class="crossFaderWrapper">
+			<input class="crossFader" type="range" min="0" value="0.5" max="1" step="0.001"/>
+			<ul class="crossFaderLabel"><li>1</li><li></li>2</ul>
+		</div>
+		 <div class="search">
+			<form id="searchForm">
+				<label>Search within SoundCloud:</label>
+				<input id="searchField" type=search placeholder="e.g. Georg Friedrich Händel">
+				<input class="submitQuery" type=button value="search">
+			</form>
+		</div>
+  	    <aside id="aside">
+	    	<h2 class="searchHeader" style="visibility:hidden">Search results:</h2>
+			<ul id="listSongs"></ul>
+			<button class="moreResults" style="visibility:hidden">More results</button>
+		</aside>
+	</main>
+	<footer>
+		<section class="footerContent">
+			<a href="https://soundcloud.com/">
+				<div class="poweredBy">
+					<p>powered by</p>
+					<img class="SCLogo" src="img/soundcloud.png">
+				</div>
+			</a>
+		</section>
+	</footer>
+	<script id="list-template" type="text/x-handlebars-template">
+       {{#each this}}
+        <li><table><tr><td class="uploaderColumn">{{uploader}}</td><td class="titleColumn">{{title}}</td><td class = "deckColumn"><button class="deck1Button" id="{{@index}}">Deck1</button><button class="deck2Button" id="{{@index}}">Deck2</button></td><td class="externalLink"><a href="{{url}}" target="_blank"><i class="fa fa-external-link"></i></a></td></tr></table></li>
+        {{/each}}
+    </script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

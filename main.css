@@ -1,0 +1,235 @@
+/* 
+-------------------------------------------------------------
+  MAIN STYLE
+-------------------------------------------------------------
+*/ 
+html {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 300;
+  color: #404040;
+  background-color: hsl(0,0%,15%);
+}
+
+body {
+  text-align: center;
+}
+
+h1,h2 {
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 75px rgba(255, 255, 255, .75);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+main {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.equaliser {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.equaliserSliders > button {
+  position: relative;
+  top: -95px;
+  left: 5px;
+}
+
+.equaliserSliders > input {
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 100px;
+    margin-left: 20px;
+}
+ 
+.equaliserSliders > input:first-child {
+  margin-left: 0;
+}
+
+.freqList {
+  margin: 0;
+  padding: 0;
+  margin-left: 2px;
+}
+
+ul.freqList li {
+  font-size: 0.8rem;
+  margin: 0;
+  display: inline-block;
+  width: 41px;
+}
+
+.tempoSlider{
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 150px;
+    margin-left: 20px;
+    display: inline-block;
+    position: relative;
+    left: -13px;
+}
+ 
+ .tempoDeckLabel {
+  font-size: 0.8rem;
+  width: 4rem;
+  position: relative;
+}
+ 
+.PBSpeedWrapper {
+  display: inline-block;
+  width: 50px;
+}
+
+.deck {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.playbackWrapper > .deck:first-child {
+  margin-left: 0;
+}
+
+.tempoDeckLabel {
+  font-size: 0.8rem;
+  width: 4rem;
+  position: relative;
+}
+
+.PBSpeedWrapper {
+  display: inline-block;
+  width: 50px;
+}
+
+.crossFaderWrapper {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.crossFaderLabel li {
+  margin-left: 120px;
+  display: inline;
+}
+
+.crossFaderLabel > li:first-child {
+  margin-left: 0;
+}
+
+#searchForm {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+  background-color: #ffffff;
+}
+
+#searchField {
+    width: 200px;
+}
+
+button, .submitQuery {
+  color: #404040;
+  background-color: #eeeeee;
+  border: 1px solid #404040;
+  font-weight: bold;
+  margin: 3px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+aside {
+  display: block;
+  margin: 0 auto;
+}
+
+table {
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+tr {
+  height: 5rem;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+td {
+  vertical-align: middle;
+  padding: 1rem;
+}
+
+.uploaderColumn {
+  width: 10rem;
+}
+
+.titleColumn {
+  width: 20rem;
+}
+
+.externalLink a,  .externalLink a:visited{
+  font-size: 1rem;
+  color: #606060;
+  text-decoration: none;
+}
+
+.externalLink a:hover, .externalLink a:active {
+  color: #70CF9A;
+}
+
+#visuals {
+  margin: auto;
+  margin-bottom: 100px;
+  height: 100px;
+  width: 100vw;
+  -webkit-box-reflect: below;
+}
+
+/* 
+-------------------------------------------------------------
+  FOOTER
+-------------------------------------------------------------
+*/ 
+
+footer {
+  font-size: 0.8rem;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.footerContent {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.poweredBy a a:hover, a:visited, a:active{
+  color: #404040;
+  text-decoration: none;
+}
+
+.SCLogo {
+  width: 60px;
+}
